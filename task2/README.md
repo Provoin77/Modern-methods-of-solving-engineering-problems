@@ -39,7 +39,7 @@
 6. **Экспорт:** **File → Save as… → Turtle Syntax (.ttl)**.
 
 ## Файлы
-- `task2_ontology.ttl` — экспорт OWL/RDF Turtle
+- `task2_ontology.ttl` — экспорт в формате Turtle
 - `README.md` — этот файл с описанием
 
 ## Экспорт / повторная сборка
