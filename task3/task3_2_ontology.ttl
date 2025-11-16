@@ -1,0 +1,201 @@
+@prefix : <http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12/> .
+
+<http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#включает_объект
+:включает_объект rdf:type owl:ObjectProperty ,
+                          owl:TransitiveProperty ;
+                 rdfs:domain :ТехнологическийОбъект ;
+                 rdfs:range :ТехнологическийОбъект .
+
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#имеет_основной_дефект
+:имеет_основной_дефект rdf:type owl:ObjectProperty ,
+                                owl:FunctionalProperty ;
+                       rdfs:domain :Сляб ;
+                       rdfs:range :Дефект .
+
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#произведён_по_маршруту
+:произведён_по_маршруту rdf:type owl:ObjectProperty ,
+                                 owl:FunctionalProperty ;
+                        rdfs:domain :Сляб ;
+                        rdfs:range :ТехнологическийМаршрут .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#Дефект
+:Дефект rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#КритичноеОборудование
+:КритичноеОборудование rdf:type owl:Class ;
+                       rdfs:subClassOf :Оборудование .
+
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#КритичныйДефект
+:КритичныйДефект rdf:type owl:Class ;
+                 rdfs:subClassOf :Дефект .
+
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#Оборудование
+:Оборудование rdf:type owl:Class ;
+              rdfs:subClassOf :ТехнологическийОбъект .
+
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#Операция
+:Операция rdf:type owl:Class ;
+          rdfs:subClassOf :ТехнологическийОбъект .
+
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#РисковыйСляб
+:РисковыйСляб rdf:type owl:Class ;
+              rdfs:subClassOf :Сляб .
+
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#Сляб
+:Сляб rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#ТехнологическийМаршрут
+:ТехнологическийМаршрут rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#ТехнологическийОбъект
+:ТехнологическийОбъект rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#Дефект_ГлубокаяТрещина
+:Дефект_ГлубокаяТрещина rdf:type owl:NamedIndividual ,
+                                 :Дефект ,
+                                 :КритичныйДефект .
+
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#Дефект_ПоверхностныйСкол
+:Дефект_ПоверхностныйСкол rdf:type owl:NamedIndividual ,
+                                   :Дефект .
+
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#Кристаллизатор_1
+:Кристаллизатор_1 rdf:type owl:NamedIndividual ,
+                           :КритичноеОборудование ,
+                           :Оборудование .
+
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#Маршрут_1
+:Маршрут_1 rdf:type owl:NamedIndividual ,
+                    :ТехнологическийМаршрут ;
+           :включает_объект :Операция_Разливка .
+
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#Операция_Разливка
+:Операция_Разливка rdf:type owl:NamedIndividual ,
+                            :Операция ;
+                   :включает_объект :Кристаллизатор_1 .
+
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#Сляб_01
+:Сляб_01 rdf:type owl:NamedIndividual ,
+                  :Сляб ;
+         :имеет_основной_дефект :Дефект_ГлубокаяТрещина ;
+         :произведён_по_маршруту :Маршрут_1 .
+
+
+###  http://www.semanticweb.org/prokh/ontologies/2025/10/untitled-ontology-12#Сляб_02
+:Сляб_02 rdf:type owl:NamedIndividual ,
+                  :Сляб ;
+         :имеет_основной_дефект :Дефект_ПоверхностныйСкол ;
+         :произведён_по_маршруту :Маршрут_1 .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+:x rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:r rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:o rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:d rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Правило_РисковыйСляб" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Сляб ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :произведён_по_маршруту ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :r
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :включает_объект ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :r ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :o
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#classPredicate> :КритичноеОборудование ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :o
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> :имеет_основной_дефект ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#classPredicate> :КритичныйДефект ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> :d
+                                                                                                            ] ;
+                                                                                                  rdf:rest rdf:nil
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :РисковыйСляб ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
